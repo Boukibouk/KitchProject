@@ -17,8 +17,8 @@ INCLUDE_PROJECT = Include
 SOURCE_PROJECT =  $(wildcard $(BASE_SRC)/Common/*.cpp) $(wildcard $(BASE_SRC)/Map/*.cpp) $(wildcard $(BASE_SRC)/StateMachine/*.cpp)
 SOURCE_PROJECT = $(wildcard $(BASE_SRC)/Common/*.cpp)  $(wildcard $(BASE_SRC)/Map/*.cpp) $(wildcard $(BASE_SRC)/StateMachine/*.cpp)
                     
-INCLUDE_TEST =  $(BASE_SRC)/Test/Include
-SOURCE_TEST =   $(wildcard $(BASE_SRC)/Test/Source/*.cpp)
+INCLUDE_TEST =  Test/Include
+SOURCE_TEST =   $(wildcard Test/Source/*.cpp)
 
 # Further files can be added ...
 
@@ -43,11 +43,10 @@ else
 CFLAG += -DDEBUG -o $(BINARY_NAME)
 endif 
 
-clean:
-	rm -rf *.o *.out
+all: compile
 
-compile:   
+compile: clean   
 	$(CC) $(CFLAG) $(SOURCE) 
 
-
-all: clean compile
+clean:
+	rm -rf *.o *.out

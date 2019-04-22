@@ -72,12 +72,13 @@ bool Map::UpdateMap(Position NewChefPosition, Position newOpponentPosition)
 
 #if defined DEBUG
 
-static void Map::PrintMap(){
+ void Map::PrintMap(){
 
-for(int j =0 ; i< MAP_WIDTH; j++ ){}
+for(int j =0 ; j< MAP_WIDTH; j++ ){
     for(int i=0; i < MAP_LENGTH; i++ ){
         cout << kitchen[j][i];
     }
+    cout << '\n';
 }
 }
 

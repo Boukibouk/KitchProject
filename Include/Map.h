@@ -37,7 +37,7 @@ public:
 
 #if defined DEBUG
      //Only available for Debug propose
-     static void PrintMap();
+    void PrintMap();
 #endif 
 
 };
