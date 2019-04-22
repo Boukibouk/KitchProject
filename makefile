@@ -17,47 +17,12 @@ INCLUDE_PROJECT = Include
 SOURCE_PROJECT =  $(wildcard $(BASE_SRC)/Common/*.cpp) $(wildcard $(BASE_SRC)/Map/*.cpp) $(wildcard $(BASE_SRC)/StateMachine/*.cpp)
 SOURCE_PROJECT = $(wildcard $(BASE_SRC)/Common/*.cpp)  $(wildcard $(BASE_SRC)/Map/*.cpp) $(wildcard $(BASE_SRC)/StateMachine/*.cpp)
                     
-<<<<<<< HEAD
 INCLUDE_TEST =  Test/Include
 SOURCE_TEST =   $(wildcard Test/Source/*.cpp)
-=======
-INCLUDE_TEST =  $(BASE_SRC)/Test/Include
-SOURCE_TEST =   $(wildcard $(BASE_SRC)/Test/Source/*.cpp)
->>>>>>> master
 
 # Further files can be added ...
 
-#Test files
 SOURCE = $(SOURCE_PROJECT)
-<<<<<<< HEAD
-=======
-
-
-ifeq ($(MODE),TEST_MODE)
-SOURCE  += $(SOURCE_TEST)  
-endif 
-
-CC = g++
-CFLAG = -I $(INCLUDE_PROJECT)
-
-ifeq ($(MODE),TEST_MODE)
-CFLAG += -I $(INCLUDE_TEST)
-endif
-
-ifeq ($(MODE),COMPILE_ONLY)
-CFLAG += -c
-else
-CFLAG += -DDEBUG -o $(BINARY_NAME)
-endif 
-
-clean:
-	rm -rf *.o *.out
-
-compile:   
-	$(CC) $(CFLAG) $(SOURCE) 
->>>>>>> master
-
-
 ifeq ($(MODE),TEST_MODE)
 SOURCE  += $(SOURCE_TEST)  
 endif 
