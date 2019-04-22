@@ -25,6 +25,9 @@ Map::Map(/* args */)
         LinePointeur[i].copy(kitchen[i],MAP_WIDTH);
     }
     isMapInit = true;
+#if defined DEBUG
+   Map::PrintMap();
+#endif 
 }
 
 bool Map::UpdateMap(int PosChefx, int PosChefy, int PosOpponentChefx, int PosOpponentChefy ){
@@ -69,7 +72,7 @@ bool Map::UpdateMap(Position NewChefPosition, Position newOpponentPosition)
 
 #if defined DEBUG
 
-void Map::PrintMap(){
+static void Map::PrintMap(){
 
 for(int j =0 ; i< MAP_WIDTH; j++ ){}
     for(int i=0; i < MAP_LENGTH; i++ ){
