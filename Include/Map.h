@@ -5,14 +5,17 @@
 
 
 
-
+#define NO_POSITION 0xFF
 
 class Map
 {
 private:
     char kitchen[MAP_WIDTH][MAP_LENGTH];
     MapElement Mapobject;
+    
     Position ActualChefPosition;
+    Position ActualOpponentChefPosition;
+
     bool isMapInit;
     bool IsOtherPlayerPositionUpdate;
     bool IsRoadMapUpdate;
@@ -26,8 +29,8 @@ public:
     Map();
 
      void setMap(std::string *LinePointeur);
-     int UpdateMap(int Posx, int Posy);
-     int UpdateMap(Position NewPosition);
+     bool UpdateMap(int PosChefx, int PosChefy, int PosOpponentChefx, int PosOpponentChefy );
+     bool UpdateMap(Position NewChefPosition, Position newOpponentPosition);
     
     void CalculateRoadMap(char Destination);
     void UpdateRoadMap();
