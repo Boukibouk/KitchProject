@@ -2,11 +2,12 @@
 
 using namespace std;
 
+
 int main(void){
 
-Map MyTestMap; 
-string Array[11]={"Yacine","Yacine","Yacine"};
-MyTestMap.setMap(Array);
+RunTcase1();
 
     return 0;
 }
+
+

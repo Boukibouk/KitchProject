@@ -10,7 +10,7 @@
 class Map
 {
 private:
-    char kitchen[MAP_WIDTH][MAP_LENGTH];
+    char kitchen[MAP_LENGTH][MAP_WIDTH];
     MapElement Mapobject;
     
     Position ActualChefPosition;

@@ -32,6 +32,7 @@ PATH_TEST = Test/Source/TestCase
 ifeq ($(TCASE_1),1)
 SOURCE_TEST += $(wildcard $(PATH_TEST)/TCASE1/*.cpp)
 INCLUDE_TEST += $(PATH_TEST)/TCASE1
+CFLAG += -DTCASE1
 endif 
 
 ifeq ($(MODE),TEST_MODE)
@@ -61,7 +62,7 @@ all: compile
 
 compile: clean    
 	$(info ************ Building project ********* )
-	@$(CC) $(CFLAG) $(SOURCE)
+	$(CC) $(CFLAG) $(SOURCE)
 	
 
 clean:
