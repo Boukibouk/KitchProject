@@ -17,10 +17,9 @@ void RunTcase1(){
       LogInfo("File MapToLoad.txt open with success");
       getline(MapFileTxt,MapName);
 
-      LogInfo("Run Map : "+MapName);
-
       for(int i= 0; i< MAP_LENGTH; i++){
-          getline(MapFileTxt,line[i]);      
+          getline(MapFileTxt,line[i]);
+          std::cout<< line[i]<< endl;      
       }
 
       MyMap.setMap(line);

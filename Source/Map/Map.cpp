@@ -22,7 +22,7 @@ Map::Map(/* args */)
   void Map::setMap(string * LinePointeur){
     // Execute for each line
     for(int i = 0; i < MAP_LENGTH; i++){
-        LinePointeur[i].copy(kitchen[i],MAP_WIDTH);
+        LinePointeur[i].copy(&(kitchen[i][0]),MAP_WIDTH);
     }
     isMapInit = true;
 #if defined DEBUG
@@ -38,25 +38,25 @@ bool Map::UpdateMap(int PosChefx, int PosChefy, int PosOpponentChefx, int PosOpp
 
         if(PosChefx != NO_POSITION && PosChefy != NO_POSITION ){
         // remove the old chef position 
-        kitchen[ActualChefPosition.posX][ActualChefPosition.posY] = FreePlaceA_MapObject;
+        kitchen[ActualChefPosition.posY][ActualChefPosition.posX] = FreePlaceA_MapObject;
         
         ActualChefPosition.posX = PosChefx;
         ActualChefPosition.posY = PosChefy;
 
         // set the new chef position
-        kitchen[PosChefx][PosChefy] = MyChef_MapObject;
+        kitchen[PosChefy][PosChefx] = MyChef_MapObject;
         }
 
         if(PosOpponentChefx != NO_POSITION && PosOpponentChefy != NO_POSITION){
         
         // set the old opponen position free
-        kitchen[ActualOpponentChefPosition.posX][ActualOpponentChefPosition.posY] = FreePlaceA_MapObject;
+        kitchen[ActualOpponentChefPosition.posY][ActualOpponentChefPosition.posX] = FreePlaceA_MapObject;
         
         ActualOpponentChefPosition.posX = PosOpponentChefx;
         ActualOpponentChefPosition.posY = PosOpponentChefy;
 
         // set the new opponen position
-        kitchen[PosOpponentChefx][PosOpponentChefy] = OpponentChefA_MapObject;
+        kitchen[PosOpponentChefy][PosOpponentChefx] = OpponentChefA_MapObject;
 
         }
         retval = true;
@@ -73,9 +73,9 @@ bool Map::UpdateMap(Position NewChefPosition, Position newOpponentPosition)
 #if defined DEBUG
 
  void Map::PrintMap(){
-
-for(int j =0 ; j< MAP_WIDTH; j++ ){
-    for(int i=0; i < MAP_LENGTH; i++ ){
+std::cout <<"Print actual map"<<std::endl;
+for(int j =0 ; j< MAP_LENGTH; j++ ){
+    for(int i=0; i < MAP_WIDTH; i++ ){
         cout << kitchen[j][i];
     }
     cout << '\n';
